@@ -27,6 +27,7 @@ namespace Onirim.Manager
             DrawDeck(StateManager.State, screenWidth, screenHeight);
             DrawPlayArea(StateManager.State, screenWidth, screenHeight);
             DrawDiscardPile(StateManager.State, screenWidth, screenHeight);
+            DrawDoors(StateManager.State, screenWidth, screenHeight);
             SpriteBatch.End();
         }
 
@@ -71,6 +72,20 @@ namespace Onirim.Manager
             {
                 var front = hand[i].Front;
                 SpriteBatch.Draw(front, new Rectangle(xPos + 150 * i, yPos, 100, 175), Color.White);
+            }
+        }
+
+        private void DrawDoors(GameState state, int screenWidth, int screenHeight)
+        {
+            var doors = state.Doors.ToArray();
+            var xPos = 300;
+            var yPos = 50;
+            for (int i = 0; i < doors.Count(); i++)
+            {
+                var front = doors[i].Front;
+                var yPosFactor = (int)Math.Floor(i / 23d) * 175 + yPos;
+
+                SpriteBatch.Draw(front, new Rectangle(xPos + 75 * (i % 23), yPosFactor, 100, 175), Color.White);
             }
         }
     }

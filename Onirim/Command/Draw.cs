@@ -14,8 +14,25 @@ namespace Onirim.Command
             var cardToDraw = gameState.MainDeck.FirstOrDefault();
             if (cardToDraw != null)
             {
-                gameState.Hand.Add(cardToDraw);
-                gameState.MainDeck.Remove(cardToDraw);
+                if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Location)
+                {
+                    gameState.Hand.Add(cardToDraw);
+                    gameState.MainDeck.Remove(cardToDraw);
+                }
+                else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Door)
+                {
+                    NextCommand = new Shuffle(new Draw());
+                }
+                else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Nightmare)
+                {
+                    gameState.DiscardPile.Add(cardToDraw);
+                    gameState.MainDeck.Remove(cardToDraw);
+                    NextCommand = new Draw();
+                }
+            }
+            else
+            {
+                NextCommand = new Lose();
             }
         }
     }

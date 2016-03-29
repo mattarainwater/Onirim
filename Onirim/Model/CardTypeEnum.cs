@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Onirim.Model
 {
-    public class Door : Card
+    public enum CardTypeEnum
     {
-        public CardColorEnum Color { get; set; }
+        Location,
+        Door,
+        Nightmare
     }
 }

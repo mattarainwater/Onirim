@@ -46,7 +46,9 @@ namespace Onirim.ContentManagers
             {
                 if(cardAsString[0] == "Nightmare")
                 {
-                    return new Nightmare { Front = ArtManager.Nightmare, Back = ArtManager.DefaultBack };
+                    return new Card(ArtManager.Nightmare, ArtManager.DefaultBack, new Dictionary<string, object> {
+                    { "Type", CardTypeEnum.Nightmare }
+                });
                 }
             }
             var color = (CardColorEnum)Enum.Parse(typeof(CardColorEnum), cardAsString[0]);
@@ -68,7 +70,10 @@ namespace Onirim.ContentManagers
                         front = ArtManager.RedDoor;
                         break;
                 }
-                return new Door { Color = color, Front = front, Back = ArtManager.DefaultBack };
+                return new Card(front, ArtManager.DefaultBack, new Dictionary<string, object> {
+                    { "Color", color },
+                    { "Type", CardTypeEnum.Door }
+                });
             }
             else
             {
@@ -134,7 +139,11 @@ namespace Onirim.ContentManagers
                         }
                         break;
                 }
-                return new Location { Color = color, Symbol = symbol, Front = front, Back = ArtManager.DefaultBack };
+                return new Card(front, ArtManager.DefaultBack, new Dictionary<string, object> {
+                    { "Color", color },
+                    { "Symbol", symbol },
+                    { "Type", CardTypeEnum.Location }
+                });
             }
         }
     }

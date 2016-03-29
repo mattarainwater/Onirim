@@ -21,23 +21,23 @@ namespace Onirim.Manager
         {
             var availableCommands = StateManager.GetAvailableActions();
 
-            if (PreviousKeyboardState.IsKeyUp(Keys.D1) && keyboardState.IsKeyDown(Keys.D1))
+            if (PreviousKeyboardState.IsKeyUp(Keys.D1) && keyboardState.IsKeyDown(Keys.D1) && availableCommands.Count > 0)
             {
                 StateManager.ExecuteCommand(availableCommands[0]);
             }
-            if (PreviousKeyboardState.IsKeyUp(Keys.D2) && keyboardState.IsKeyDown(Keys.D2))
+            if (PreviousKeyboardState.IsKeyUp(Keys.D2) && keyboardState.IsKeyDown(Keys.D2) && availableCommands.Count > 1)
             {
                 StateManager.ExecuteCommand(availableCommands[1]);
             }
-            if (PreviousKeyboardState.IsKeyUp(Keys.D3) && keyboardState.IsKeyDown(Keys.D3))
+            if (PreviousKeyboardState.IsKeyUp(Keys.D3) && keyboardState.IsKeyDown(Keys.D3) && availableCommands.Count > 2)
             {
                 StateManager.ExecuteCommand(availableCommands[2]);
             }
-            if (PreviousKeyboardState.IsKeyUp(Keys.D4) && keyboardState.IsKeyDown(Keys.D4))
+            if (PreviousKeyboardState.IsKeyUp(Keys.D4) && keyboardState.IsKeyDown(Keys.D4) && availableCommands.Count > 3)
             {
                 StateManager.ExecuteCommand(availableCommands[3]);
             }
-            if (PreviousKeyboardState.IsKeyUp(Keys.D5) && keyboardState.IsKeyDown(Keys.D5))
+            if (PreviousKeyboardState.IsKeyUp(Keys.D5) && keyboardState.IsKeyDown(Keys.D5) && availableCommands.Count > 4)
             {
                 StateManager.ExecuteCommand(availableCommands[4]);
             }

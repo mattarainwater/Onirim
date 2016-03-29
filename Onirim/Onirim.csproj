@@ -41,13 +41,18 @@
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Command\Draw.cs" />
     <Compile Include="Command\DrawLocations.cs" />
+    <Compile Include="Command\GainDoor.cs" />
     <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\Lose.cs" />
     <Compile Include="Command\PlayLocation.cs" />
+    <Compile Include="Command\Reset.cs" />
     <Compile Include="Command\Shuffle.cs" />
+    <Compile Include="Command\Win.cs" />
     <Compile Include="ContentManagers\ArtManager.cs" />
     <Compile Include="ContentManagers\DeckManager.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="Manager\InputManager.cs" />
+    <Compile Include="Model\CardTypeEnum.cs" />
     <Compile Include="Model\Decision.cs" />
     <Compile Include="Manager\DeckUtilities.cs" />
     <Compile Include="Manager\RenderManager.cs" />
@@ -56,9 +61,6 @@
     <Compile Include="Model\Card.cs" />
     <Compile Include="Model\CardColorEnum.cs" />
     <Compile Include="Model\CardSymbolEnum.cs" />
-    <Compile Include="Model\Door.cs" />
-    <Compile Include="Model\Location.cs" />
-    <Compile Include="Model\Nightmare.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

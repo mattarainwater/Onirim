@@ -27,14 +27,10 @@ namespace Onirim.Manager
 
         public List<BaseCommand> GetAvailableActions()
         {
-            return new List<BaseCommand>
-            {
-                new PlayLocation { Location = State.Hand[0] },
-                new PlayLocation { Location = State.Hand[1] },
-                new PlayLocation { Location = State.Hand[2] },
-                new PlayLocation { Location = State.Hand[3] },
-                new PlayLocation { Location = State.Hand[4] },
-            };
+            var hand = State.Hand;
+            var actions = new List<BaseCommand>();
+            actions.AddRange(hand.Select(x => new PlayLocation() { Location = x }));
+            return actions;
         }
     }
 }

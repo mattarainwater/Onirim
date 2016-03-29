@@ -15,7 +15,23 @@ namespace Onirim.Command
         {
             gameState.PlayArea.Add(Location);
             gameState.Hand.Remove(Location);
-            NextCommand = new Draw();
+            if(gameState.PlayArea.Count() >= 3)
+            {
+                var reversePlayArea = gameState.PlayArea.Reverse<Card>();
+                var lastThreeGrouped = reversePlayArea.Take(3).GroupBy(x => x.Properties["Color"]);
+                if(lastThreeGrouped.Count() == 1)
+                {
+                    NextCommand = new GainDoor((CardColorEnum)lastThreeGrouped.First().Key);
+                }
+                else
+                {
+                    NextCommand = new Draw();
+                }
+            }
+            else
+            {
+                NextCommand = new Draw();
+            }
         }
     }
 }

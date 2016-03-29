@@ -17,7 +17,7 @@ namespace Onirim.Command
         {
             while(gameState.Hand.Count() < 5 && gameState.MainDeck.Any())
             {
-                var nextLocation = gameState.MainDeck.FirstOrDefault(c => c.GetType() == typeof(Location));
+                var nextLocation = gameState.MainDeck.FirstOrDefault(c => (CardTypeEnum)c.Properties["Type"] == CardTypeEnum.Location);
                 if(nextLocation != null)
                 {
                     gameState.MainDeck.Remove(nextLocation);
