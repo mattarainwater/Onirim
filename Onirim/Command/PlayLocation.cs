@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Onirim.Command
 {
-    public class PlayLocation : BaseCommand
+    public class PlayLocation : BaseCommand, ILocationable
     {
         public Card Location { get; set; }
 

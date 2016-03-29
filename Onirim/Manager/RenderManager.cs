@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Onirim.Command;
 using Onirim.Model;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Onirim.Manager
         public void Draw(int screenWidth, int screenHeight)
         {
             SpriteBatch.Begin();
-            DrawHand(StateManager.State, screenWidth, screenHeight);
+            DrawHand(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
             DrawDeck(StateManager.State, screenWidth, screenHeight);
             DrawPlayArea(StateManager.State, screenWidth, screenHeight);
             DrawDiscardPile(StateManager.State, screenWidth, screenHeight);
@@ -63,15 +64,27 @@ namespace Onirim.Manager
             }
         }
 
-        private void DrawHand(GameState state, int screenWidth, int screenHeight)
+        private void DrawHand(GameState state, int screenWidth, int screenHeight, List<Button> buttons)
         {
             var hand = state.Hand.ToArray();
             var xPos = (screenWidth - 700) / 2;
-            var yPos = (screenHeight - 200);
+            var yPos = (screenHeight - 400);
             for (int i = 0; i < hand.Count(); i++)
             {
                 var front = hand[i].Front;
                 SpriteBatch.Draw(front, new Rectangle(xPos + 150 * i, yPos, 100, 175), Color.White);
+                var buttonForLocation = buttons.Where(x => ((ILocationable)x.Command).Location == hand[i]);
+                DrawButtons(buttonForLocation, xPos + 150 * i, yPos + 200);
+            }
+        }
+
+        private void DrawButtons(IEnumerable<Button> buttonForLocation, int xPos, int yPos)
+        {
+            foreach (var button in buttonForLocation)
+            {
+                button.HitBox = new Rectangle(xPos, yPos, 50, 175 / 2);
+                SpriteBatch.Draw(button.Texture, button.HitBox, Color.White);
+                xPos += 75;
             }
         }
 

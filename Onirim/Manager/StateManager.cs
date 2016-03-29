@@ -1,4 +1,5 @@
 ﻿using Onirim.Command;
+using Onirim.ContentManagers;
 using Onirim.Model;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Onirim.Manager
         }
 
         public GameState State { get; set; }
+        public List<Button> Buttons { get; set; }
 
         public void ExecuteCommand(BaseCommand command)
         {
@@ -23,14 +25,27 @@ namespace Onirim.Manager
             {
                 ExecuteCommand(command.NextCommand);
             }
+            else
+            {
+                SetAvailableActions();
+            }
         }
 
-        public List<BaseCommand> GetAvailableActions()
+        private void SetAvailableActions()
         {
             var hand = State.Hand;
             var actions = new List<BaseCommand>();
             actions.AddRange(hand.Select(x => new PlayLocation() { Location = x }));
-            return actions;
+            Buttons = actions.Select(ToButton).ToList();
+        }
+
+        private Button ToButton(BaseCommand command)
+        {
+            return new Button
+            {
+                Command = command,
+                Texture = ArtManager.Play
+            };
         }
     }
 }

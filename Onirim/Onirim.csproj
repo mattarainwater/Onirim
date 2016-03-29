@@ -43,6 +43,7 @@
     <Compile Include="Command\DrawLocations.cs" />
     <Compile Include="Command\GainDoor.cs" />
     <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ILocationable.cs" />
     <Compile Include="Command\Lose.cs" />
     <Compile Include="Command\PlayLocation.cs" />
     <Compile Include="Command\Reset.cs" />
@@ -52,8 +53,8 @@
     <Compile Include="ContentManagers\DeckManager.cs" />
     <Compile Include="GameMain.cs" />
     <Compile Include="Manager\InputManager.cs" />
+    <Compile Include="Model\Button.cs" />
     <Compile Include="Model\CardTypeEnum.cs" />
-    <Compile Include="Model\Decision.cs" />
     <Compile Include="Manager\DeckUtilities.cs" />
     <Compile Include="Manager\RenderManager.cs" />
     <Compile Include="Manager\StateManager.cs" />
@@ -102,6 +103,9 @@
     <Content Include="Content\DefaultBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\discard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\GreenDoor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -115,6 +119,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Nightmare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\play.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\RedDoor.png">

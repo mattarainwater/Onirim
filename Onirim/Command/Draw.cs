@@ -21,7 +21,14 @@ namespace Onirim.Command
                 }
                 else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Door)
                 {
-                    NextCommand = new Shuffle(new Draw());
+                    if(gameState.MainDeck.All(x => (CardTypeEnum)x.Properties["Type"] == CardTypeEnum.Door))
+                    {
+                        NextCommand = new Lose();
+                    }
+                    else
+                    {
+                        NextCommand = new Shuffle(new Draw());
+                    }
                 }
                 else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Nightmare)
                 {

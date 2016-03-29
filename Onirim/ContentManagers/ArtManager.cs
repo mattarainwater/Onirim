@@ -35,6 +35,9 @@ namespace Onirim.ContentManagers
             Nightmare = content.Load<Texture2D>("Nightmare");
 
             DefaultBack = content.Load<Texture2D>("DefaultBack");
+
+            Discard = content.Load<Texture2D>("discard");
+            Play = content.Load<Texture2D>("play");
         }
 
         public static Texture2D RedSun { get; set; }
@@ -60,5 +63,8 @@ namespace Onirim.ContentManagers
         public static Texture2D Nightmare { get; set; }
 
         public static Texture2D DefaultBack { get; set; }
+
+        public static Texture2D Discard { get; set; }
+        public static Texture2D Play { get; set; }
     }
 }

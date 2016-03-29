@@ -8,10 +8,13 @@ namespace Onirim.Model
 {
     public class Card
     {
+        public Guid Id { get; set; }
+
         public Card(Texture2D front, Texture2D back)
         {
             Front = front;
             Back = back;
+            Id = Guid.NewGuid();
         }
 
         public Card(Texture2D front, Texture2D back, Dictionary<string, object> properties)
