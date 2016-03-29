@@ -100,4 +100,10 @@
 /Onirim/Content/obj/Windows/RedKey.mgcontent
 /Onirim/Content/obj/Windows/RedMoon.mgcontent
 /Onirim/Content/obj/Windows/RedSun.mgcontent
+/Onirim/bin/Windows/Debug/Onirim.vshost.exe.manifest
+/.vs/Onirim/v14/.suo
+/Onirim/obj/x86/Debug
+/packages/MonoGame.Framework.WindowsDX.3.4.0.459/lib/net40
+*.nupkg
+*.txt
 *.suo
