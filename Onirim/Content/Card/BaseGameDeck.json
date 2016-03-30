@@ -1,0 +1,132 @@
+﻿[
+  {
+    "Amount": 2,
+    "Card": {
+      "Color": "Green",
+      "Type": "Door"
+    }
+  },
+  {
+    "Amount": 2,
+    "Card": {
+      "Color": "Red",
+      "Type": "Door"
+    }
+  },
+  {
+    "Amount": 2,
+    "Card": {
+      "Color": "Blue",
+      "Type": "Door"
+    }
+  },
+  {
+    "Amount": 2,
+    "Card": {
+      "Color": "Brown",
+      "Type": "Door"
+    }
+  },
+  {
+    "Amount": 3,
+    "Card": {
+      "Color": "Brown",
+      "Type": "Location",
+	  "Symbol":  "Key"
+    }
+  },
+  {
+    "Amount": 4,
+    "Card": {
+      "Color": "Brown",
+      "Type": "Location",
+	  "Symbol":  "Moon"
+    }
+  },
+  {
+    "Amount": 6,
+    "Card": {
+      "Color": "Brown",
+      "Type": "Location",
+	  "Symbol":  "Sun"
+    }
+  },
+  {
+    "Amount": 3,
+    "Card": {
+      "Color": "Blue",
+      "Type": "Location",
+	  "Symbol":  "Key"
+    }
+  },
+  {
+    "Amount": 4,
+    "Card": {
+      "Color": "Blue",
+      "Type": "Location",
+	  "Symbol":  "Moon"
+    }
+  },
+  {
+    "Amount": 8,
+    "Card": {
+      "Color": "Blue",
+      "Type": "Location",
+	  "Symbol":  "Sun"
+    }
+  },
+  {
+    "Amount": 3,
+    "Card": {
+      "Color": "Red",
+      "Type": "Location",
+	  "Symbol":  "Key"
+    }
+  },
+  {
+    "Amount": 4,
+    "Card": {
+      "Color": "Red",
+      "Type": "Location",
+	  "Symbol":  "Moon"
+    }
+  },
+  {
+    "Amount": 9,
+    "Card": {
+      "Color": "Red",
+      "Type": "Location",
+	  "Symbol":  "Sun"
+    }
+  },
+  {
+    "Amount": 3,
+    "Card": {
+      "Color": "Green",
+      "Type": "Location",
+	  "Symbol":  "Key"
+    }
+  },
+  {
+    "Amount": 4,
+    "Card": {
+      "Color": "Green",
+      "Type": "Location",
+	  "Symbol":  "Moon"
+    }
+  },
+  {
+    "Amount": 7,
+    "Card": {
+      "Color": "Green",
+      "Type": "Location",
+	  "Symbol":  "Sun"
+    }
+  },
+  {
+    "Amount": 10,
+    "Card": {
+      "Type": "Nightmare"
+    }
+  }
+]

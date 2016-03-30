@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
+using Onirim.ContentManagers.ContentModel;
 using Onirim.Model;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace Onirim.ContentManagers
         {
             // Read the file as one string.
             System.IO.StreamReader myFile =
-               new System.IO.StreamReader("Content/Card/BaseGameDeck.txt");
+               new System.IO.StreamReader("Content/Card/BaseGameDeck.json");
             var cardsAsString = myFile.ReadToEnd();
 
             myFile.Close();
@@ -25,36 +27,29 @@ namespace Onirim.ContentManagers
         {
             var cardsToReturn = new List<Card>();
 
-            var lines = cardsAsString.Replace("\n", "").Replace("\r", "").Split(new string[] { ";" }, StringSplitOptions.None);
-            foreach(var line in lines)
+            var contentCardContainers = JsonConvert.DeserializeObject<List<ContentCardContainer>>(cardsAsString);
+
+            foreach(var contentCardContainer in contentCardContainers)
             {
-                if(!string.IsNullOrEmpty(line))
-                {
-                    var lineSeperated = line.Split(null);
-                    var count = Int32.Parse(lineSeperated[lineSeperated.Count() - 1]);
-                    var card = ToCard(lineSeperated.Take(lineSeperated.Count() - 1).ToArray());
-                    cardsToReturn.AddRange(
-                        card.Clone(count)
-                    );
-                }
+                var card = ToCard(contentCardContainer.Card);
+                cardsToReturn.AddRange(
+                    card.Clone(contentCardContainer.Amount)
+                );
             }
 
             return cardsToReturn;
         }
 
-        private static Card ToCard(string[] cardAsString)
+        private static Card ToCard(ContentCard card)
         {
-            if(cardAsString.Count() == 1)
+            if(card.Type == CardTypeEnum.Nightmare)
             {
-                if(cardAsString[0] == "Nightmare")
-                {
-                    return new Card(ArtManager.Nightmare, ArtManager.DefaultBack, new Dictionary<string, object> {
+                return new Card(ArtManager.Nightmare, ArtManager.DefaultBack, new Dictionary<string, object> {
                     { "Type", CardTypeEnum.Nightmare }
                 });
-                }
             }
-            var color = (CardColorEnum)Enum.Parse(typeof(CardColorEnum), cardAsString[0]);
-            if(cardAsString[1] == "Door")
+            var color = card.Color;
+            if(card.Type == CardTypeEnum.Door)
             {
                 Texture2D front = null;
                 switch(color)
@@ -79,7 +74,7 @@ namespace Onirim.ContentManagers
             }
             else
             {
-                var symbol = (CardSymbolEnum)Enum.Parse(typeof(CardSymbolEnum), cardAsString[1]);
+                var symbol = card.Symbol;
 
                 Texture2D front = null;
                 switch (color)
