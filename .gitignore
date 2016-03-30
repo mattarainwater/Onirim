@@ -107,3 +107,5 @@
 *.nupkg
 *.txt
 *.suo
+/Onirim/Content
+/Onirim/bin/Windows/Debug/Content

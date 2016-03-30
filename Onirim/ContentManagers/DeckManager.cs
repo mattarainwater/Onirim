@@ -25,16 +25,18 @@ namespace Onirim.ContentManagers
         {
             var cardsToReturn = new List<Card>();
 
-            var lines = cardsAsString.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            var lines = cardsAsString.Replace("\n", "").Split(new string[] { ";" }, StringSplitOptions.None);
             foreach(var line in lines)
             {
-                var lineSeperated = line.Split(null);
-                cardsToReturn.AddRange(
-                    Enumerable.Repeat(
-                        ToCard(lineSeperated.Take(lineSeperated.Count() - 1).ToArray()), 
-                        Int32.Parse(lineSeperated[lineSeperated.Count() - 1])
-                    )
-                );
+                if(!string.IsNullOrEmpty(line))
+                {
+                    var lineSeperated = line.Split(null);
+                    var count = Int32.Parse(lineSeperated[lineSeperated.Count() - 1]);
+                    var card = ToCard(lineSeperated.Take(lineSeperated.Count() - 1).ToArray());
+                    cardsToReturn.AddRange(
+                        card.Clone(count)
+                    );
+                }
             }
 
             return cardsToReturn;

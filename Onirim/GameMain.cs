@@ -27,8 +27,8 @@ namespace Onirim
 
             this.IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-            _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            _graphics.PreferredBackBufferWidth = 800;//GraphicsDevice.DisplayMode.Width / 2;
+            _graphics.PreferredBackBufferHeight = 1000;
             //_graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
 

@@ -73,7 +73,7 @@ namespace Onirim.Manager
             {
                 var front = hand[i].Front;
                 SpriteBatch.Draw(front, new Rectangle(xPos + 150 * i, yPos, 100, 175), Color.White);
-                var buttonForLocation = buttons.Where(x => ((ILocationable)x.Command).Location == hand[i]);
+                var buttonForLocation = buttons.Where(x => ((ILocationable)x.Command).Location.Id == hand[i].Id);
                 DrawButtons(buttonForLocation, xPos + 150 * i, yPos + 200);
             }
         }

@@ -1,17 +1,17 @@
-﻿Green Door 2
-Red Door 2
-Blue Door 2
-Brown Door 2
-Green Moon 4
-Green Sun 7
-Green Key 3
-Blue Moon 4
-Blue Sun 8
-Blue Key 3
-Red Moon 4
-Red Sun 9
-Red Key 3
-Brown Moon 4
-Brown Sun 6
-Brown Key 3
-Nightmare 10
+﻿Green Door 2;
+Red Door 2;
+Blue Door 2;
+Brown Door 2;
+Green Moon 4;
+Green Sun 7;
+Green Key 3;
+Blue Moon 4;
+Blue Sun 8;
+Blue Key 3;
+Red Moon 4;
+Red Sun 9;
+Red Key 3;
+Brown Moon 4;
+Brown Sun 6;
+Brown Key 3;
+Nightmare 10;
