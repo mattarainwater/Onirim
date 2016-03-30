@@ -25,7 +25,7 @@ namespace Onirim.ContentManagers
         {
             var cardsToReturn = new List<Card>();
 
-            var lines = cardsAsString.Replace("\n", "").Split(new string[] { ";" }, StringSplitOptions.None);
+            var lines = cardsAsString.Replace("\n", "").Replace("\r", "").Split(new string[] { ";" }, StringSplitOptions.None);
             foreach(var line in lines)
             {
                 if(!string.IsNullOrEmpty(line))
