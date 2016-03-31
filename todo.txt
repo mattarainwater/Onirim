@@ -1,0 +1,13 @@
+1. add in limbo/rework some of the commands (drawing mostly)
+
+2. add in ability to discard a card
+
+3. add in ability to "prophecy" when discarding a key
+
+4. add in door drawing option to discard key
+
+5. add in nightmare functionality
+
+6. go over rules, double check functionality
+
+7. finish up win/lose states
