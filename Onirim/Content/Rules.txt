@@ -1,0 +1,29 @@
+start with 5 locations in hand (shuffle others drawn back into deck)
+
+on your turn play a card to the row 
+
+or discard a card
+if you discard a key, look at the top 5 cards of the deck, discard one (mandatory) and put rest back however you choose
+
+you cannot play two symbols in a row
+
+if you play three colors in a row, auto gain a door of that color from the deck (then shuffle deck)
+a fourth card of a color stars a new set of three
+
+after you play/discard, draw back to 5
+
+if you draw a location it goes to your hand
+
+if you draw a door, you may discard a key to obtain it
+if you don't/can't put it in the limbo pile
+
+if you draw a nightmare choose:
+	discard a key
+	place an obtained door in limbo
+	look at top 5 cards of deck, discard all locations, place rest in limbo
+	discard hand, draw til 5 locations
+then discard the nightmare
+
+you win if you obtain all 8 door cards
+
+you lose if you must draw and cannot
