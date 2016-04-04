@@ -13,6 +13,7 @@ namespace Onirim.Manager
         public StateManager()
         {
             State = new GameState();
+            Buttons = new List<Button>();
         }
 
         public GameState State { get; set; }
@@ -33,13 +34,29 @@ namespace Onirim.Manager
 
         private void SetAvailableActions()
         {
+            Buttons = new List<Button>();
+
             var hand = State.Hand;
             var actions = new List<BaseCommand>();
             actions.AddRange(hand.Select(x => new PlayLocation() { Location = x }));
-            Buttons = actions.Select(ToButton).ToList();
+            actions.AddRange(hand.Select(x => new DiscardLocation() { Location = x }));
+            var playActions = actions.Where(x => x is PlayLocation);
+            var discardActions = actions.Where(x => x is DiscardLocation);
+
+            Buttons.AddRange(playActions.Select(x => ToPlayButton((PlayLocation)x)));
+            Buttons.AddRange(discardActions.Select(x => ToDiscardButton((DiscardLocation)x)));
         }
 
-        private Button ToButton(BaseCommand command)
+        private Button ToDiscardButton(DiscardLocation command)
+        {
+            return new Button
+            {
+                Command = command,
+                Texture = ArtManager.Discard
+            };
+        }
+
+        private Button ToPlayButton(PlayLocation command)
         {
             return new Button
             {

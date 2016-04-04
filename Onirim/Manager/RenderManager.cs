@@ -99,7 +99,7 @@ namespace Onirim.Manager
             {
                 button.HitBox = new Rectangle(xPos, yPos, 50, 175 / 2);
                 SpriteBatch.Draw(button.Texture, button.HitBox, Color.White);
-                xPos += 75;
+                xPos += 55;
             }
         }
 

@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\DiscardLocation.cs" />
     <Compile Include="Command\Draw.cs" />
     <Compile Include="Command\DrawLocations.cs" />
     <Compile Include="Command\GainDoor.cs" />
