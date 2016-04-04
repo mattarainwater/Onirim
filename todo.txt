@@ -1,13 +1,11 @@
-1. add in ability to discard a card
+1. add in ability to "prophecy" when discarding a key
 
-2. add in ability to "prophecy" when discarding a key
+2. add in door drawing option to discard key
 
-3. add in door drawing option to discard key
+3. add in nightmare functionality
 
-4. add in nightmare functionality
+4. go over rules, double check functionality
 
-5. go over rules, double check functionality
+5. finish up win/lose states
 
-6. finish up win/lose states
-
-7. fix rendering (overlapping cards, get screen layout fixed)
+6. fix rendering (overlapping cards, get screen layout fixed)
