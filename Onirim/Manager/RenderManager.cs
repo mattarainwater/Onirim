@@ -25,11 +25,26 @@ namespace Onirim.Manager
         {
             SpriteBatch.Begin();
             DrawHand(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
+            DrawLimbo(StateManager.State, screenWidth, screenHeight);
             DrawDeck(StateManager.State, screenWidth, screenHeight);
             DrawPlayArea(StateManager.State, screenWidth, screenHeight);
             DrawDiscardPile(StateManager.State, screenWidth, screenHeight);
             DrawDoors(StateManager.State, screenWidth, screenHeight);
             SpriteBatch.End();
+        }
+
+        private void DrawLimbo(GameState state, int screenWidth, int screenHeight)
+        {
+            var limbo = state.Limbo.ToArray();
+            var xPos = 300;
+            var yPos = 50;
+            for (int i = 0; i < limbo.Count(); i++)
+            {
+                var front = limbo[i].Front;
+                var yPosFactor = (int)Math.Floor(i / 23d) * 175 + yPos;
+
+                SpriteBatch.Draw(front, new Rectangle(xPos + 75 * (i % 23), yPosFactor, 100, 175), Color.White);
+            }
         }
 
         private void DrawDiscardPile(GameState state, int screenWidth, int screenHeight)

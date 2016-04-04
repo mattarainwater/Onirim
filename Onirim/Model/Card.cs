@@ -8,7 +8,6 @@ namespace Onirim.Model
 {
     public class Card
     {
-        public Guid Id { get; set; }
 
         public Card()
         {
@@ -40,6 +39,7 @@ namespace Onirim.Model
             return toReturn;
         }
 
+        public Guid Id { get; set; }
         public Texture2D Front { get; set; }
         public Texture2D Back { get; set; }
         public Dictionary<string, object> Properties { get; set; }

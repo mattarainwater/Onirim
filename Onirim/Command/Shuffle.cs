@@ -21,6 +21,8 @@ namespace Onirim.Command
 
         public override void Execute(GameState gameState)
         {
+            gameState.MainDeck.AddRange(gameState.Limbo);
+            gameState.Limbo.Clear();
             DeckUtilities.ShuffleCards(gameState.MainDeck);
         }
     }

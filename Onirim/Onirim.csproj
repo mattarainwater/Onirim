@@ -42,6 +42,8 @@
     <Compile Include="Command\Draw.cs" />
     <Compile Include="Command\DrawLocations.cs" />
     <Compile Include="Command\GainDoor.cs" />
+    <Compile Include="Command\HandleNightmare.cs" />
+    <Compile Include="Command\HandleDoor.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ILocationable.cs" />
     <Compile Include="Command\Lose.cs" />

@@ -11,6 +11,7 @@ namespace Onirim.Model
         public GameState()
         {
             MainDeck = DeckManager.GetBaseDeck();
+            Limbo = new List<Card>();
             DiscardPile = new List<Card>();
             PlayArea = new List<Card>();
             Hand = new List<Card>();
@@ -20,6 +21,7 @@ namespace Onirim.Model
         public void Reset()
         {
             MainDeck = DeckManager.GetBaseDeck();
+            Limbo = new List<Card>();
             DiscardPile = new List<Card>();
             PlayArea = new List<Card>();
             Hand = new List<Card>();
@@ -27,6 +29,7 @@ namespace Onirim.Model
         }
 
         public List<Card> MainDeck { get; set; }
+        public List<Card> Limbo { get; set; }
         public List<Card> Doors { get; set; }
         public List<Card> DiscardPile { get; set; }
         public List<Card> PlayArea { get; set; }

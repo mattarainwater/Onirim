@@ -15,21 +15,32 @@ namespace Onirim.Command
 
         public override void Execute(GameState gameState)
         {
-            while(gameState.Hand.Count() < 5 && gameState.MainDeck.Any())
+            // draw card
+            var card = gameState.MainDeck.First();
+
+            // if location, add to hand
+            if ((CardTypeEnum)card.Properties["Type"] == CardTypeEnum.Location)
             {
-                var nextLocation = gameState.MainDeck.FirstOrDefault(c => (CardTypeEnum)c.Properties["Type"] == CardTypeEnum.Location);
-                if(nextLocation != null)
-                {
-                    gameState.MainDeck.Remove(nextLocation);
-                    gameState.Hand.Add(nextLocation);
-                }
-                else
-                {
-                    break;
-                }
+                gameState.MainDeck.Remove(card);
+                gameState.Hand.Add(card);
+            }
+            // else, add to limbo
+            else
+            {
+                gameState.MainDeck.Remove(card);
+                gameState.Limbo.Add(card);
             }
 
-            NextCommand = new Shuffle();
+            // if hand == 5 next command shuffle
+            if(gameState.Hand.Count() == 5)
+            {
+                NextCommand = new Shuffle();
+            }
+            // else next command drawlocations
+            else
+            {
+                NextCommand = new DrawLocations();
+            }
         }
     }
 }

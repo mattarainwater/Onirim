@@ -18,23 +18,15 @@ namespace Onirim.Command
                 {
                     gameState.Hand.Add(cardToDraw);
                     gameState.MainDeck.Remove(cardToDraw);
+                    NextCommand = new Shuffle();
                 }
                 else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Door)
                 {
-                    if(gameState.MainDeck.All(x => (CardTypeEnum)x.Properties["Type"] == CardTypeEnum.Door))
-                    {
-                        NextCommand = new Lose();
-                    }
-                    else
-                    {
-                        NextCommand = new Shuffle(new Draw());
-                    }
+                    NextCommand = new HandleDoor(cardToDraw);
                 }
                 else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Nightmare)
                 {
-                    gameState.DiscardPile.Add(cardToDraw);
-                    gameState.MainDeck.Remove(cardToDraw);
-                    NextCommand = new Draw();
+                    NextCommand = new HandleNightmare(cardToDraw);
                 }
             }
             else
