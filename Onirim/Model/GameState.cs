@@ -37,5 +37,6 @@ namespace Onirim.Model
         public List<Card> PlayArea { get; set; }
         public List<Card> Hand { get; set; }
         public List<Card> ProphecyArea { get; set; }
+        public Card DrawnDoor { get; set; }
     }
 }

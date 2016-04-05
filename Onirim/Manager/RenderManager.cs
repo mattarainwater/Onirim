@@ -25,17 +25,41 @@ namespace Onirim.Manager
         public void Draw(int screenWidth, int screenHeight)
         {
             SpriteBatch.Begin();
-            DrawHand(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
             DrawLimbo(StateManager.State, screenWidth, screenHeight);
             DrawDeck(StateManager.State, screenWidth, screenHeight);
             DrawPlayArea(StateManager.State, screenWidth, screenHeight);
-            if(StateManager.State.ProphecyArea.Any())
+            if(StateManager.State.DrawnDoor != null)
+            {
+                DrawDrawnDoorAndKey(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
+            }
+            else if(StateManager.State.ProphecyArea.Any())
             {
                 DrawProphecyArea(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
+            }
+            else
+            {
+                DrawHand(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
             }
             DrawDiscardPile(StateManager.State, screenWidth, screenHeight);
             DrawDoors(StateManager.State, screenWidth, screenHeight);
             SpriteBatch.End();
+        }
+
+        private void DrawDrawnDoorAndKey(GameState state, int screenWidth, int screenHeight, List<Button> buttons)
+        {
+            var door = state.DrawnDoor;
+            var key = state.Hand.First(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)door.Properties["Color"]);
+
+            var xPos = 175;
+            var yPos = (screenHeight - 750);
+
+            SpriteBatch.Draw(door.Front, new Rectangle(175, yPos, 100, 175), Color.White);
+            SpriteBatch.Draw(key.Front, new Rectangle(175, yPos + 300, 100, 175), Color.White);
+            for(var i = 0; i < buttons.Count; i++)
+            {
+                buttons[i].HitBox = new Rectangle(175 + i * 55, yPos + 500, 50, 175 / 2);
+                SpriteBatch.Draw(buttons[i].Texture, buttons[i].HitBox, Color.White);
+            }
         }
 
         private void DrawProphecyArea(GameState state, int screenWidth, int screenHeight, List<Button> buttons)
@@ -43,8 +67,6 @@ namespace Onirim.Manager
             var prophecy = state.ProphecyArea.ToArray();
             var xPos = (screenWidth - 700) / 2;
             var yPos = (screenHeight - 400);
-
-            SpriteBatch.Draw(ArtManager.Square, new Rectangle(50, 200, 650, 300), Color.Green);
 
             for (int i = 0; i < prophecy.Count(); i++)
             {

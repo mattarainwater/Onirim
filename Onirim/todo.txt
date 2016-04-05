@@ -1,0 +1,11 @@
+redo state management (i.e., states the player is in [Animation, AwaitPlay, AwaitDecision])
+
+add in ability to sort prophecied cards
+
+add in nightmare functionality
+
+go over rules, double check functionality
+
+finish up win/lose states
+
+fix rendering (overlapping cards, get screen layout fixed)

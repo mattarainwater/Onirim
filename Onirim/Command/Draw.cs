@@ -18,7 +18,14 @@ namespace Onirim.Command
                 {
                     gameState.Hand.Add(cardToDraw);
                     gameState.MainDeck.Remove(cardToDraw);
-                    NextCommand = new Shuffle();
+                    if(gameState.Hand.Count == 5)
+                    {
+                        NextCommand = new Shuffle();
+                    }
+                    else
+                    {
+                        NextCommand = new Draw();
+                    }
                 }
                 else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Door)
                 {

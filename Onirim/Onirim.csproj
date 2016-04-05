@@ -49,6 +49,8 @@
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ILocationable.cs" />
     <Compile Include="Command\Lose.cs" />
+    <Compile Include="Command\ObtainDoorWithKey.cs" />
+    <Compile Include="Command\PassOnDoor.cs" />
     <Compile Include="Command\PlayLocation.cs" />
     <Compile Include="Command\Prophecy.cs" />
     <Compile Include="Command\Reset.cs" />
@@ -109,6 +111,7 @@
     <Content Include="Content\BrownSun.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="todo.txt" />
     <None Include="Content\Card\BaseGameDeck.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -18,8 +18,15 @@ namespace Onirim.Command
         public override void Execute(GameState gameState)
         {
             gameState.MainDeck.Remove(_door);
-            gameState.Limbo.Add(_door);
-            NextCommand = new Draw();
+            if(gameState.Hand.Any(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)_door.Properties["Color"]))
+            {
+                gameState.DrawnDoor = _door;
+            }
+            else
+            {
+                gameState.Limbo.Add(_door);
+                NextCommand = new Draw();
+            }
         }
     }
 }

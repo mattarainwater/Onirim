@@ -37,7 +37,14 @@ namespace Onirim.Manager
         {
             Buttons = new List<Button>();
 
-            if(State.ProphecyArea.Any())
+            if(State.DrawnDoor != null)
+            {
+                var playDoor = new ObtainDoorWithKey() { Location = State.Hand.First(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)State.DrawnDoor.Properties["Color"]) };
+                var discardDoor = new PassOnDoor();
+                Buttons.Add(ToButton(playDoor, ArtManager.Play));
+                Buttons.Add(ToButton(discardDoor, ArtManager.Discard));
+            }
+            else if(State.ProphecyArea.Any())
             {
                 var prophecy = State.ProphecyArea;
                 var actions = new List<BaseCommand>();
