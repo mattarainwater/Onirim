@@ -44,7 +44,7 @@ namespace Onirim
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            ArtManager.InitializeGraphcis(Content);
+            ArtManager.InitializeGraphics(Content, GraphicsDevice);
         }
 
         protected override void UnloadContent()

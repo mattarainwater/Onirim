@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Onirim.Command;
+using Onirim.ContentManagers;
 using Onirim.Model;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,30 @@ namespace Onirim.Manager
             DrawLimbo(StateManager.State, screenWidth, screenHeight);
             DrawDeck(StateManager.State, screenWidth, screenHeight);
             DrawPlayArea(StateManager.State, screenWidth, screenHeight);
+            if(StateManager.State.ProphecyArea.Any())
+            {
+                DrawProphecyArea(StateManager.State, screenWidth, screenHeight, StateManager.Buttons);
+            }
             DrawDiscardPile(StateManager.State, screenWidth, screenHeight);
             DrawDoors(StateManager.State, screenWidth, screenHeight);
             SpriteBatch.End();
+        }
+
+        private void DrawProphecyArea(GameState state, int screenWidth, int screenHeight, List<Button> buttons)
+        {
+            var prophecy = state.ProphecyArea.ToArray();
+            var xPos = (screenWidth - 700) / 2;
+            var yPos = (screenHeight - 400);
+
+            SpriteBatch.Draw(ArtManager.Square, new Rectangle(50, 200, 650, 300), Color.Green);
+
+            for (int i = 0; i < prophecy.Count(); i++)
+            {
+                var front = prophecy[i].Front;
+                SpriteBatch.Draw(front, new Rectangle(xPos + 150 * i, yPos, 100, 175), Color.White);
+                var buttonForLocation = buttons.Where(x => ((ILocationable)x.Command).Location.Id == prophecy[i].Id);
+                DrawButtons(buttonForLocation, xPos + 150 * i, yPos + 200);
+            }
         }
 
         private void DrawLimbo(GameState state, int screenWidth, int screenHeight)

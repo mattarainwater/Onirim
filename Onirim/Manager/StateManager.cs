@@ -1,4 +1,5 @@
-﻿using Onirim.Command;
+﻿using Microsoft.Xna.Framework.Graphics;
+using Onirim.Command;
 using Onirim.ContentManagers;
 using Onirim.Model;
 using System;
@@ -38,7 +39,10 @@ namespace Onirim.Manager
 
             if(State.ProphecyArea.Any())
             {
-
+                var prophecy = State.ProphecyArea;
+                var actions = new List<BaseCommand>();
+                actions.AddRange(prophecy.Select(x => new Discard() { Location = x }));
+                Buttons.AddRange(actions.Select(x => ToButton(x, ArtManager.Discard)));
             }
             else
             {
@@ -49,26 +53,17 @@ namespace Onirim.Manager
                 var playActions = actions.Where(x => x is PlayLocation);
                 var discardActions = actions.Where(x => x is DiscardLocation);
 
-                Buttons.AddRange(playActions.Select(x => ToPlayButton((PlayLocation)x)));
-                Buttons.AddRange(discardActions.Select(x => ToDiscardButton((DiscardLocation)x)));
+                Buttons.AddRange(playActions.Select(x => ToButton(x, ArtManager.Play)));
+                Buttons.AddRange(discardActions.Select(x => ToButton(x, ArtManager.Discard)));
             }
         }
 
-        private Button ToDiscardButton(DiscardLocation command)
+        private Button ToButton(BaseCommand command, Texture2D texture)
         {
             return new Button
             {
                 Command = command,
-                Texture = ArtManager.Discard
-            };
-        }
-
-        private Button ToPlayButton(PlayLocation command)
-        {
-            return new Button
-            {
-                Command = command,
-                Texture = ArtManager.Play
+                Texture = texture
             };
         }
     }

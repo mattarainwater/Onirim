@@ -10,7 +10,7 @@ namespace Onirim.ContentManagers
 {
     public static class ArtManager
     {
-        public static void InitializeGraphcis(ContentManager content)
+        public static void InitializeGraphics(ContentManager content, GraphicsDevice device)
         {
             RedSun = content.Load<Texture2D>("RedSun");
             RedMoon = content.Load<Texture2D>("RedMoon");
@@ -38,6 +38,8 @@ namespace Onirim.ContentManagers
 
             Discard = content.Load<Texture2D>("discard");
             Play = content.Load<Texture2D>("play");
+
+            Square = new Texture2D(device, 1, 1);
         }
 
         public static Texture2D RedSun { get; set; }
@@ -66,5 +68,7 @@ namespace Onirim.ContentManagers
 
         public static Texture2D Discard { get; set; }
         public static Texture2D Play { get; set; }
+
+        public static Texture2D Square { get; set; }
     }
 }

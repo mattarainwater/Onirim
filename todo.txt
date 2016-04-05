@@ -1,4 +1,4 @@
-1. add in ability to "prophecy" when discarding a key
+1. fix prophecy UI, add in ability to sort prophecied cards
 
 2. add in door drawing option to discard key
 
