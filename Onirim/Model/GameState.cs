@@ -16,6 +16,7 @@ namespace Onirim.Model
             PlayArea = new List<Card>();
             Hand = new List<Card>();
             Doors = new List<Card>();
+            ProphecyArea = new List<Card>();
         }
 
         public void Reset()
@@ -26,6 +27,7 @@ namespace Onirim.Model
             PlayArea = new List<Card>();
             Hand = new List<Card>();
             Doors = new List<Card>();
+            ProphecyArea = new List<Card>();
         }
 
         public List<Card> MainDeck { get; set; }
@@ -34,5 +36,6 @@ namespace Onirim.Model
         public List<Card> DiscardPile { get; set; }
         public List<Card> PlayArea { get; set; }
         public List<Card> Hand { get; set; }
+        public List<Card> ProphecyArea { get; set; }
     }
 }

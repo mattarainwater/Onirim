@@ -49,6 +49,7 @@
     <Compile Include="Command\ILocationable.cs" />
     <Compile Include="Command\Lose.cs" />
     <Compile Include="Command\PlayLocation.cs" />
+    <Compile Include="Command\Prophecy.cs" />
     <Compile Include="Command\Reset.cs" />
     <Compile Include="Command\Shuffle.cs" />
     <Compile Include="Command\Win.cs" />
