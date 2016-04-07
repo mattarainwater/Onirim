@@ -13,5 +13,20 @@ namespace Onirim.Common
 
         public MouseState PreviousMouseState { get; set; }
         public MouseState CurrentMouseState { get; set; }
+
+        public bool LeftClick()
+        {
+            return PreviousMouseState.LeftButton == ButtonState.Pressed && CurrentMouseState.LeftButton == ButtonState.Released;
+        }
+
+        public bool RightClick()
+        {
+            return PreviousMouseState.RightButton == ButtonState.Pressed && CurrentMouseState.RightButton == ButtonState.Released;
+        }
+
+        public bool KeyPressed(Keys key)
+        {
+            return PreviousKeyboardState.IsKeyDown(key) && CurrentKeyboardState.IsKeyUp(key);
+        }
     }
 }

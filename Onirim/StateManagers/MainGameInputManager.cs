@@ -17,7 +17,7 @@ namespace Onirim.StateManagers
 
         public BaseCommand HandleInput(InputState inputState, List<Button> buttons)
         {
-            if(inputState.PreviousMouseState.LeftButton == ButtonState.Pressed && inputState.CurrentMouseState.LeftButton == ButtonState.Released)
+            if(inputState.LeftClick())
             {
                 foreach (var button in buttons)
                 {
