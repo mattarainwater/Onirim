@@ -8,4 +8,6 @@ go over rules, double check functionality
 
 finish up win/lose states
 
+redo card json and rules engine
+
 fix rendering (overlapping cards, get screen layout fixed)

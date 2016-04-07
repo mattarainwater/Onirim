@@ -5,7 +5,7 @@ namespace Onirim.Command
 {
     public class Win : BaseCommand
     {
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
         }
     }

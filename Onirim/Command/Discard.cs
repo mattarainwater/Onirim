@@ -10,7 +10,7 @@ namespace Onirim.Command
     {
         public Card Location { get; set; }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.ProphecyArea.Clear();
             gameState.MainDeck.Remove(Location);

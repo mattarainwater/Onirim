@@ -1,5 +1,4 @@
-﻿using Onirim.Manager;
-using Onirim.Model;
+﻿using Onirim.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace Onirim.Command
     {
         public Card Location { get; set; }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.PlayArea.Add(Location);
             gameState.Hand.Remove(Location);

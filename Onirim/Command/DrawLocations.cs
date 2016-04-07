@@ -1,5 +1,4 @@
-﻿using Onirim.Manager;
-using Onirim.Model;
+﻿using Onirim.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace Onirim.Command
         {
         }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             // draw card
             var card = gameState.MainDeck.First();

@@ -13,7 +13,7 @@ namespace Onirim.Command
             _color = color;
         }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             var door = gameState.MainDeck
                 .Where(x => (CardTypeEnum)x.Properties["Type"] == CardTypeEnum.Door)

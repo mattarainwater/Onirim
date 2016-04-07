@@ -1,5 +1,4 @@
-﻿using Onirim.Manager;
-using Onirim.Model;
+﻿using Onirim.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +8,6 @@ namespace Onirim.Command
 {
     public interface ICommand
     {
-        void Execute(GameState gameState);
+        void Execute(GameModel gameState);
     }
 }

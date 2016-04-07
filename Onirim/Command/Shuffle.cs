@@ -1,4 +1,4 @@
-﻿using Onirim.Manager;
+﻿using Onirim.Common;
 using Onirim.Model;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Onirim.Command
             NextCommand = command;
         }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.MainDeck.AddRange(gameState.Limbo);
             gameState.Limbo.Clear();

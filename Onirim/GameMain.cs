@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Onirim.Command;
+using Onirim.Common;
 using Onirim.ContentManagers;
-using Onirim.Manager;
+using Onirim.States;
 
 namespace Onirim
 {
@@ -12,8 +13,9 @@ namespace Onirim
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private StateManager _stateManager;
-        private RenderManager _drawManager;
-        private InputManager _inputManager;
+
+        private KeyboardState _previousKeyboardState;
+        private MouseState _previousMouseState;
 
         public GameMain()
         {
@@ -27,18 +29,13 @@ namespace Onirim
 
             this.IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = 800;//GraphicsDevice.DisplayMode.Width / 2;
-            _graphics.PreferredBackBufferHeight = 1000;
+            _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
             //_graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
 
             _stateManager = new StateManager();
-            _stateManager.ExecuteCommand(new Shuffle());
-            _stateManager.ExecuteCommand(new DrawLocations());
-
-            _drawManager = new RenderManager(_spriteBatch, _stateManager);
-
-            _inputManager = new InputManager(_stateManager);
+            _stateManager.Initialize(new MainGameState());
         }
 
         protected override void LoadContent()
@@ -53,12 +50,22 @@ namespace Onirim
 
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState newState = Keyboard.GetState();  // get the newest state
+            var currentKeyboardState = Keyboard.GetState();
+            var currentMouseState = Mouse.GetState();
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            _inputManager.HandleInput(Keyboard.GetState(), Mouse.GetState());
+            _stateManager.CurrentState.Update(new InputState
+            {
+                CurrentKeyboardState = currentKeyboardState,
+                CurrentMouseState = currentMouseState,
+                PreviousKeyboardState = _previousKeyboardState,
+                PreviousMouseState = _previousMouseState
+            });
+
+            _previousKeyboardState = currentKeyboardState;
+            _previousMouseState = currentMouseState;
 
             base.Update(gameTime);
         }
@@ -67,7 +74,7 @@ namespace Onirim
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _drawManager.Draw(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+            _stateManager.CurrentState.Draw(_spriteBatch, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
             base.Draw(gameTime);
         }

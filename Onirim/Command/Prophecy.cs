@@ -8,7 +8,7 @@ namespace Onirim.Command
 {
     public class Prophecy : BaseCommand
     {
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             var topFiveOfDeck = gameState.MainDeck.Take(5);
             gameState.ProphecyArea.AddRange(topFiveOfDeck);

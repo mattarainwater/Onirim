@@ -8,7 +8,7 @@ namespace Onirim.Command
 {
     public class PassOnDoor : BaseCommand
     {
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.Limbo.Add(gameState.DrawnDoor);
             gameState.DrawnDoor = null;

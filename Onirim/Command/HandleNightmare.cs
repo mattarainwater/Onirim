@@ -15,7 +15,7 @@ namespace Onirim.Command
             _nightmare = nightmare;
         }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.MainDeck.Remove(_nightmare);
             gameState.DiscardPile.Add(_nightmare);

@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Onirim.Model
 {
-    public class GameState
+    public class GameModel
     {
-        public GameState()
+        public GameModel()
         {
             MainDeck = DeckManager.GetBaseDeck();
             Limbo = new List<Card>();

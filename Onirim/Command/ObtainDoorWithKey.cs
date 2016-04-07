@@ -10,7 +10,7 @@ namespace Onirim.Command
     {
         public Card Location { get; set; }
 
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             gameState.Hand.Remove(Location);
             gameState.DiscardPile.Add(Location);

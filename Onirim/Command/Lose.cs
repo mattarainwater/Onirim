@@ -8,7 +8,7 @@ namespace Onirim.Command
 {
     public class Lose : BaseCommand
     {
-        public override void Execute(GameState gameState)
+        public override void Execute(GameModel gameState)
         {
             NextCommand = new Reset();
         }
