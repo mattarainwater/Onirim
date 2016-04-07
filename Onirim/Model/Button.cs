@@ -19,5 +19,11 @@ namespace Onirim.Model
         {
             return HitBox.Contains(mouseState.Position);
         }
+
+        public void Draw(SpriteBatch spriteBatch, Rectangle rect)
+        {
+            HitBox = rect;
+            spriteBatch.Draw(Texture, HitBox, Color.White);
+        }
     }
 }

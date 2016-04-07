@@ -51,8 +51,7 @@ namespace Onirim.StateManagers
             spriteBatch.Draw(key.Front, new Rectangle(175, yPos + 300, 100, 175), Color.White);
             for(var i = 0; i < buttons.Count; i++)
             {
-                buttons[i].HitBox = new Rectangle(175 + i * 55, yPos + 500, 50, 175 / 2);
-                spriteBatch.Draw(buttons[i].Texture, buttons[i].HitBox, Color.White);
+                buttons[i].Draw(spriteBatch, new Rectangle(175 + i * 55, yPos + 500, 50, 175 / 2));
             }
         }
 
@@ -135,8 +134,7 @@ namespace Onirim.StateManagers
         {
             foreach (var button in buttonForLocation)
             {
-                button.HitBox = new Rectangle(xPos, yPos, 50, 175 / 2);
-                spriteBatch.Draw(button.Texture, button.HitBox, Color.White);
+                button.Draw(spriteBatch, new Rectangle(xPos, yPos, 50, 175 / 2));
                 xPos += 55;
             }
         }
