@@ -7,6 +7,7 @@ namespace Onirim.Model
 {
     public enum CardColorEnum
     {
+        None,
         Red,
         Green,
         Blue,

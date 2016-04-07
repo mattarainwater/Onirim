@@ -21,10 +21,12 @@ namespace Onirim.Model
             Back = back;
         }
 
-        public Card(Texture2D front, Texture2D back, Dictionary<string, object> properties)
+        public Card(Texture2D front, Texture2D back, CardTypeEnum type, CardColorEnum color = CardColorEnum.None, CardSymbolEnum symbol = CardSymbolEnum.None)
             : this(front, back)
         {
-            Properties = properties;
+            Type = type;
+            Color = color;
+            Symbol = symbol;
         }
 
         public List<Card> Clone(int count)
@@ -33,7 +35,7 @@ namespace Onirim.Model
 
             for(var i = 0; i < count; i++)
             {
-                toReturn.Add(new Card(Front, Back, Properties));
+                toReturn.Add(new Card(Front, Back, Type, Color, Symbol));
             }
 
             return toReturn;
@@ -42,6 +44,8 @@ namespace Onirim.Model
         public Guid Id { get; set; }
         public Texture2D Front { get; set; }
         public Texture2D Back { get; set; }
-        public Dictionary<string, object> Properties { get; set; }
+        public CardTypeEnum Type { get; set; }
+        public CardColorEnum Color { get; set; }
+        public CardSymbolEnum Symbol { get; set; }
     }
 }

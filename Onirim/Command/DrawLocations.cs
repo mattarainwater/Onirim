@@ -18,7 +18,7 @@ namespace Onirim.Command
             var card = gameState.MainDeck.First();
 
             // if location, add to hand
-            if ((CardTypeEnum)card.Properties["Type"] == CardTypeEnum.Location)
+            if (card.Type == CardTypeEnum.Location)
             {
                 gameState.MainDeck.Remove(card);
                 gameState.Hand.Add(card);

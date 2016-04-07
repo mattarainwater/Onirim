@@ -18,7 +18,7 @@ namespace Onirim.Command
         public override void Execute(GameModel gameState)
         {
             gameState.MainDeck.Remove(_door);
-            if(gameState.Hand.Any(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)_door.Properties["Color"]))
+            if(gameState.Hand.Any(x => x.Symbol == CardSymbolEnum.Key && x.Color == _door.Color))
             {
                 gameState.DrawnDoor = _door;
             }

@@ -7,6 +7,7 @@ namespace Onirim.Model
 {
     public enum CardSymbolEnum
     {
+        None,
         Sun,
         Moon,
         Key

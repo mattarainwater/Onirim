@@ -42,7 +42,7 @@ namespace Onirim.StateManagers
         private void DrawDrawnDoorAndKey(SpriteBatch spriteBatch, GameModel state, int screenWidth, int screenHeight, List<Button> buttons)
         {
             var door = state.DrawnDoor;
-            var key = state.Hand.First(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)door.Properties["Color"]);
+            var key = state.Hand.First(x => x.Symbol == CardSymbolEnum.Key && x.Color == door.Color);
 
             var xPos = 175;
             var yPos = (screenHeight - 750);

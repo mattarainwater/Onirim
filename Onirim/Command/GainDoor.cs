@@ -16,8 +16,8 @@ namespace Onirim.Command
         public override void Execute(GameModel gameState)
         {
             var door = gameState.MainDeck
-                .Where(x => (CardTypeEnum)x.Properties["Type"] == CardTypeEnum.Door)
-                .FirstOrDefault(x => x.Properties.ContainsKey("Color") && (CardColorEnum)x.Properties["Color"] == _color);
+                .Where(x => x.Type == CardTypeEnum.Door)
+                .FirstOrDefault(x => x.Color == _color);
             if(door != null)
             {
                 gameState.Doors.Add(door);

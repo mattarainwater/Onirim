@@ -14,7 +14,7 @@ namespace Onirim.Command
         {
             gameState.Hand.Remove(Location);
             gameState.DiscardPile.Add(Location);
-            if((CardSymbolEnum)Location.Properties["Symbol"] == CardSymbolEnum.Key)
+            if(Location.Symbol == CardSymbolEnum.Key)
             {
                 NextCommand = new Prophecy();
             }

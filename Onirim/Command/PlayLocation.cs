@@ -17,10 +17,10 @@ namespace Onirim.Command
             if(gameState.PlayArea.Count() >= 3)
             {
                 var reversePlayArea = gameState.PlayArea.Reverse<Card>();
-                var lastThreeGrouped = reversePlayArea.Take(3).GroupBy(x => x.Properties["Color"]);
+                var lastThreeGrouped = reversePlayArea.Take(3).GroupBy(x => x.Color);
                 if(lastThreeGrouped.Count() == 1)
                 {
-                    NextCommand = new GainDoor((CardColorEnum)lastThreeGrouped.First().Key);
+                    NextCommand = new GainDoor(lastThreeGrouped.First().Key);
                 }
                 else
                 {

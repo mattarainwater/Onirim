@@ -13,7 +13,7 @@ namespace Onirim.Command
             var cardToDraw = gameState.MainDeck.FirstOrDefault();
             if (cardToDraw != null)
             {
-                if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Location)
+                if (cardToDraw.Type == CardTypeEnum.Location)
                 {
                     gameState.Hand.Add(cardToDraw);
                     gameState.MainDeck.Remove(cardToDraw);
@@ -26,11 +26,11 @@ namespace Onirim.Command
                         NextCommand = new Draw();
                     }
                 }
-                else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Door)
+                else if (cardToDraw.Type == CardTypeEnum.Door)
                 {
                     NextCommand = new HandleDoor(cardToDraw);
                 }
-                else if ((CardTypeEnum)cardToDraw.Properties["Type"] == CardTypeEnum.Nightmare)
+                else if (cardToDraw.Type == CardTypeEnum.Nightmare)
                 {
                     NextCommand = new HandleNightmare(cardToDraw);
                 }

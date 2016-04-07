@@ -71,7 +71,7 @@ namespace Onirim.States
 
             if (Model.DrawnDoor != null)
             {
-                var playDoor = new ObtainDoorWithKey() { Location = Model.Hand.First(x => (CardSymbolEnum)x.Properties["Symbol"] == CardSymbolEnum.Key && (CardColorEnum)x.Properties["Color"] == (CardColorEnum)Model.DrawnDoor.Properties["Color"]) };
+                var playDoor = new ObtainDoorWithKey() { Location = Model.Hand.First(x => x.Symbol == CardSymbolEnum.Key && x.Color == Model.DrawnDoor.Color) };
                 var discardDoor = new PassOnDoor();
                 Buttons.Add(ToButton(playDoor, ArtManager.Play));
                 Buttons.Add(ToButton(discardDoor, ArtManager.Discard));
@@ -100,7 +100,7 @@ namespace Onirim.States
 
         private bool AbleToPlay(Card cardInHand, Card lastPlayedCard)
         {
-            return lastPlayedCard == null || (CardSymbolEnum)lastPlayedCard.Properties["Symbol"] != (CardSymbolEnum)cardInHand.Properties["Symbol"];
+            return lastPlayedCard == null || lastPlayedCard.Symbol != cardInHand.Symbol;
         }
 
         private Button ToButton(BaseCommand command, Texture2D texture)
